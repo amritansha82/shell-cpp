@@ -11,6 +11,7 @@ int main() {
     
     std::string input;
     getline(std::cin, input);
+    if (input == "exit 0") return 0;
     cout<<input<<": command not found"<<endl;
   }
 }
