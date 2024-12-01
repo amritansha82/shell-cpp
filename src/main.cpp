@@ -54,6 +54,22 @@ int main() {
         }
       }
     }
+    else if(input.find("pwd")==0){
+      char cwd[1024];
+      if (getcwd(cwd, sizeof(cwd)) != NULL) {
+          std::cout << cwd << std::endl;
+      } else {
+          std::cerr << "getcwd() error" << std::endl;
+      }
+    }
+    else if(input.find("cd")==0){
+      string sub = input.substr(3);
+      if (sub == "") {
+        chdir(getenv("HOME"));
+      } else {
+        chdir(sub.c_str());
+      }
+    }
     else{
       int check_file=system(input.c_str());
       if (check_file == 0) continue;
