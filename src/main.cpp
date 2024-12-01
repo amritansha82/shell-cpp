@@ -55,6 +55,9 @@ int main() {
       }
     }
     else{
+      int check_file=system(input.c_str());
+      if (check_file == 0) continue;
+      else
       cout << input << ": command not found" << endl;
     }
   }
