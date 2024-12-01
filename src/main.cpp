@@ -66,8 +66,15 @@ int main() {
       string sub = input.substr(3);
       if (sub == "") {
         chdir(getenv("HOME"));
-      } else {
-        chdir(sub.c_str());
+      } 
+      else if (sub == "~"){
+        chdir(getenv("HOME"));
+      }
+      else {
+        int check_path=chdir(sub.c_str());
+        if (check_path == -1) {
+          std::cerr << "cd: " << sub << ": No such file or directory" << std::endl;
+        }
       }
     }
     else{
